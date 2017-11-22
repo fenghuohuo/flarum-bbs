@@ -40,7 +40,6 @@ class WebAppController extends AbstractWebAppController
      */
     public function __construct(WebApp $webApp, Dispatcher $events, SettingsRepositoryInterface $settings, ExtensionManager $extensions)
     {
-        echo 1;
         $this->webApp = $webApp;
         $this->events = $events;
         $this->settings = $settings;

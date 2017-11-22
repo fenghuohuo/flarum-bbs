@@ -24,7 +24,7 @@ class AdminServiceProvider extends AbstractServiceProvider
      * {@inheritdoc}
      */
     public function register()
-    {
+    {echo 1;exit;
         $this->app->singleton(UrlGenerator::class, function () {
             return new UrlGenerator($this->app, $this->app->make('flarum.admin.routes'));
         });
@@ -38,7 +38,7 @@ class AdminServiceProvider extends AbstractServiceProvider
      * {@inheritdoc}
      */
     public function boot()
-    {
+    {echo 2;exit;
         $this->populateRoutes($this->app->make('flarum.admin.routes'));
 
         $this->loadViewsFrom(__DIR__.'/../../views', 'flarum.admin');
@@ -54,7 +54,7 @@ class AdminServiceProvider extends AbstractServiceProvider
      * @param RouteCollection $routes
      */
     protected function populateRoutes(RouteCollection $routes)
-    {
+    {echo 3;exit;
         $route = $this->app->make(RouteHandlerFactory::class);
 
         $routes->get(
@@ -65,7 +65,7 @@ class AdminServiceProvider extends AbstractServiceProvider
     }
 
     protected function flushWebAppAssetsWhenThemeChanged()
-    {
+    {echo 4;exit;
         $this->app->make('events')->listen(SettingWasSet::class, function (SettingWasSet $event) {
             if (preg_match('/^theme_|^custom_less$/i', $event->key)) {
                 $this->getWebAppAssets()->flushCss();
