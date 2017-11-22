@@ -77,7 +77,7 @@ class AdminServiceProvider extends AbstractServiceProvider
     protected function flushWebAppAssetsWhenExtensionsChanged()
     {echo 5;
         $events = $this->app->make('events');
-
+echo 6;
         $events->listen(ExtensionWasEnabled::class, [$this, 'flushWebAppAssets']);
         $events->listen(ExtensionWasDisabled::class, [$this, 'flushWebAppAssets']);
     }
