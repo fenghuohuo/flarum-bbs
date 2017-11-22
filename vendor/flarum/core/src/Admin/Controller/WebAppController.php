@@ -51,6 +51,7 @@ class WebAppController extends AbstractWebAppController
      */
     protected function getView(ServerRequestInterface $request)
     {
+        echo 1;exit;
         $view = parent::getView($request);
 
         $settings = $this->settings->all();
