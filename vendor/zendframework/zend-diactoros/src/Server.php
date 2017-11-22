@@ -117,7 +117,6 @@ class Server
     ) {
         $request  = ServerRequestFactory::fromGlobals($server, $query, $body, $cookies, $files);
         $response = new Response();
-        echo 1;
         return new static($callback, $request, $response);
     }
 
@@ -168,7 +167,6 @@ class Server
         if (! $response instanceof ResponseInterface) {
             $response = $this->response;
         }
-        echo 2;
         $this->getEmitter()->emit($response, $bufferLevel);
     }
 
