@@ -75,7 +75,7 @@ class AdminServiceProvider extends AbstractServiceProvider
     }
 
     protected function flushWebAppAssetsWhenExtensionsChanged()
-    {
+    {echo 5;
         $events = $this->app->make('events');
 
         $events->listen(ExtensionWasEnabled::class, [$this, 'flushWebAppAssets']);
@@ -83,7 +83,7 @@ class AdminServiceProvider extends AbstractServiceProvider
     }
 
     public function flushWebAppAssets()
-    {
+    {echo 6;
         $this->getWebAppAssets()->flush();
     }
 
@@ -91,7 +91,7 @@ class AdminServiceProvider extends AbstractServiceProvider
      * @return \Flarum\Http\WebApp\WebAppAssets
      */
     protected function getWebAppAssets()
-    {
+    {echo 7;
         return $this->app->make(WebApp::class)->getAssets();
     }
 }
