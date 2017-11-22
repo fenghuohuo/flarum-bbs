@@ -10,7 +10,7 @@
  */
 
 use Illuminate\Container\Container;
-
+echo 1;exit;
 if (! function_exists('app')) {
     /**
      * Get the available container instance.
