@@ -8,9 +8,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-require 'vendor/autoload.php';
 echo 1;exit;
+require 'vendor/autoload.php';
+
 $server = new Flarum\Admin\Server(__DIR__);
 
 $server->listen();
