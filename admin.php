@@ -10,7 +10,7 @@
  */
 
 require 'vendor/autoload.php';
-
-$server = new Flarum\Admin\Server(__DIR__);
 echo 1;exit;
+$server = new Flarum\Admin\Server(__DIR__);
+
 $server->listen();
