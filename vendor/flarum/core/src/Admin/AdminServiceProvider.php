@@ -24,12 +24,13 @@ class AdminServiceProvider extends AbstractServiceProvider
      * {@inheritdoc}
      */
     public function register()
-    {echo 1;exit;
+    {
         $this->app->singleton(UrlGenerator::class, function () {
             return new UrlGenerator($this->app, $this->app->make('flarum.admin.routes'));
         });
 
         $this->app->singleton('flarum.admin.routes', function () {
+            echo 1;
             return new RouteCollection;
         });
     }
