@@ -40,6 +40,7 @@ class WebAppController extends AbstractWebAppController
      */
     public function __construct(WebApp $webApp, Dispatcher $events, SettingsRepositoryInterface $settings, ExtensionManager $extensions)
     {
+        echo 1;
         $this->webApp = $webApp;
         $this->events = $events;
         $this->settings = $settings;
@@ -51,7 +52,6 @@ class WebAppController extends AbstractWebAppController
      */
     protected function getView(ServerRequestInterface $request)
     {
-        echo 1;exit;
         $view = parent::getView($request);
 
         $settings = $this->settings->all();
