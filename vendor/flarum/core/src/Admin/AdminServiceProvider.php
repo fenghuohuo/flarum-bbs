@@ -30,7 +30,6 @@ class AdminServiceProvider extends AbstractServiceProvider
         });
 
         $this->app->singleton('flarum.admin.routes', function () {
-            echo 1;
             return new RouteCollection;
         });
     }
@@ -39,7 +38,7 @@ class AdminServiceProvider extends AbstractServiceProvider
      * {@inheritdoc}
      */
     public function boot()
-    {echo 2;
+    {
         $this->populateRoutes($this->app->make('flarum.admin.routes'));
 
         $this->loadViewsFrom(__DIR__.'/../../views', 'flarum.admin');
@@ -55,7 +54,7 @@ class AdminServiceProvider extends AbstractServiceProvider
      * @param RouteCollection $routes
      */
     protected function populateRoutes(RouteCollection $routes)
-    {echo 3;
+    {
         $route = $this->app->make(RouteHandlerFactory::class);
 
         $routes->get(
@@ -66,7 +65,7 @@ class AdminServiceProvider extends AbstractServiceProvider
     }
 
     protected function flushWebAppAssetsWhenThemeChanged()
-    {echo 4;
+    {
         $this->app->make('events')->listen(SettingWasSet::class, function (SettingWasSet $event) {
             if (preg_match('/^theme_|^custom_less$/i', $event->key)) {
                 $this->getWebAppAssets()->flushCss();
@@ -75,15 +74,15 @@ class AdminServiceProvider extends AbstractServiceProvider
     }
 
     protected function flushWebAppAssetsWhenExtensionsChanged()
-    {echo 5;
+    {
         $events = $this->app->make('events');
-echo 6;
+
         $events->listen(ExtensionWasEnabled::class, [$this, 'flushWebAppAssets']);
         $events->listen(ExtensionWasDisabled::class, [$this, 'flushWebAppAssets']);
     }
 
     public function flushWebAppAssets()
-    {echo 6;
+    {
         $this->getWebAppAssets()->flush();
     }
 
@@ -91,7 +90,7 @@ echo 6;
      * @return \Flarum\Http\WebApp\WebAppAssets
      */
     protected function getWebAppAssets()
-    {echo 7;
+    {
         return $this->app->make(WebApp::class)->getAssets();
     }
 }

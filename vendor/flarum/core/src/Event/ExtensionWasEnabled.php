@@ -24,7 +24,7 @@ class ExtensionWasEnabled
      * @param Extension $extension
      */
     public function __construct(Extension $extension)
-    {echo 6;
+    {
         $this->extension = $extension;
     }
 }
